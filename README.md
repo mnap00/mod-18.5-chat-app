@@ -58,3 +58,14 @@ Story:
 Acceptance Criteria:
   * on the chat view, there should be information about unread messages
   * that information should be placed near user name (red dot)
+
+Leave Chat
+----------
+Story:
+> As a chat user
+> In order to leave chat
+> I want to disconnect and leave channel
+
+Acceptance Criteria:
+  * user should disconnect on closing chat window
+  * other users should get information that user have left the chat

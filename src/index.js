@@ -28,6 +28,15 @@ io.on('connection', function(socket) {
     });
 });
 
+io.on('connection', function(socket) {
+    socket.on('disconnect', function() {
+        userService.removeUser(socket.id);
+        socket.broadcast.emit('update', {
+            users: userService.getAllUsers()
+        });
+    });
+});
+
 server.listen(3000, function() {
     console.log('listening on *:3000');  // eslint-disable-line no-console
 });
