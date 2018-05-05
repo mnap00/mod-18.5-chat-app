@@ -1,0 +1,28 @@
+{
+  "name": "mod-18.5-chat-app",
+  "version": "0.1.0",
+  "description": "Chat App - ExpressJS SocketIO",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/mnap00/mod-18.5-chat.app.git"
+  },
+  "keywords": [
+    "chat",
+    "expressjs",
+    "socketio"
+  ],
+  "author": "mnap00",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mnap00/mod-18.5-chat.app/issues"
+  },
+  "homepage": "https://github.com/mnap00/mod-18.5-chat.app#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "socket.io": "^2.1.0"
+  }
+}
