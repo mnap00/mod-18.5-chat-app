@@ -12,6 +12,22 @@ app.get('/', function(req, res) {
     res.sendFile(__dirname + '/index.html');
 });
 
+io.on('connection', function(socket) {
+    // client is listening for connection
+    socket.on('join', function(name) {
+        // add user to list
+        userService.addUser({
+            id: socket.id,
+            name
+        });
+        // emit update event which updates user list for everyone listening
+        // for that event
+        io.emit('update', {
+            users: userService.getAllUsers()
+        });
+    });
+});
+
 server.listen(3000, function() {
     console.log('listening on *:3000');  // eslint-disable-line no-console
 });
