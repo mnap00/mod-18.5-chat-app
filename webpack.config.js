@@ -24,15 +24,15 @@ module.exports = (env) => {
             plugins.push(
                 new CopyWebpackPlugin([
                     {
-                        from: path.resolve(__dirname, './src/server'),
-                        to: path.resolve(__dirname, './dist/server')
+                        from: path.resolve(__dirname, './src/*.js'),
+                        to: path.resolve(__dirname, './dist/')
                     }
                 ], {
                     ignore: []
                 })
             ),
             plugins.push(
-                new ExtractTextPlugin('client/style.css')
+                new ExtractTextPlugin('public/style.css')
             ),
             plugins.push(
                 new OptimizeJsPlugin({
@@ -50,11 +50,14 @@ module.exports = (env) => {
             ]
             : []).concat(['./src/client/index.js']),
         devtool: devMode ? 'inline-source-map' : 'source-map',
+        devServer: {
+            contentBase: './src/public',
+            publicPath: '/'
+        },
         output: {
             filename: 'client/[name].bundle.js',
             path: path.resolve(__dirname, 'dist'),
-            publicPath: '/',
-            sourceMapFilename: '[file].map'
+            sourceMapFilename: 'client/[file].map'
         },
         module: {
             rules: [
