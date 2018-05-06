@@ -6,6 +6,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const OptimizeJsPlugin = require('optimize-js-plugin');
 
 const plugins = [
+    new ExtractTextPlugin('styles/[name].css'),
     new HtmlWebpackPlugin({
         template: 'src/public/index.html',
         filename: 'public/index.html',
@@ -30,9 +31,6 @@ module.exports = (env) => {
                 ], {
                     ignore: []
                 })
-            ),
-            plugins.push(
-                new ExtractTextPlugin('public/style.css')
             ),
             plugins.push(
                 new OptimizeJsPlugin({
