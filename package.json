@@ -4,7 +4,15 @@
   "description": "Chat App - ExpressJS SocketIO",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "init-project": "npm init && npm install && run-s init:*",
+    "init:dir-src": "shx mkdir -p src/components src/containers src/images src/vendor",
+    "dev": "webpack-dev-server --hot --env development",
+    "start": "npm run dev",
+    "lint": "run-s lint:*",
+    "lint:html": "html5v src/index.html",
+    "lint:js": "eslint --ext .js src/",
+    "test": "npm run lint",
+    "build": "webpack --env production"
   },
   "repository": {
     "type": "git",
@@ -13,7 +21,9 @@
   "keywords": [
     "chat",
     "expressjs",
-    "socketio"
+    "socketio",
+    "react",
+    "webpack"
   ],
   "author": "mnap00",
   "license": "ISC",
@@ -21,8 +31,37 @@
     "url": "https://github.com/mnap00/mod-18.5-chat.app/issues"
   },
   "homepage": "https://github.com/mnap00/mod-18.5-chat.app#readme",
+  "browserslist": [
+    "> 1%",
+    "ie 10"
+  ],
   "dependencies": {
+    "autoprefixer": "^8.4.1",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "clean-webpack-plugin": "^0.1.19",
+    "copy-webpack-plugin": "^4.5.1",
+    "css-loader": "^0.28.11",
     "express": "^4.16.3",
-    "socket.io": "^2.1.0"
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^1.1.11",
+    "html-webpack-plugin": "^3.2.0",
+    "node-sass": "^4.9.0",
+    "optimize-js-plugin": "0.0.4",
+    "postcss-loader": "^2.1.5",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "react-hot-loader": "^4.1.2",
+    "sass-loader": "^7.0.1",
+    "socket.io": "^2.1.0",
+    "socket.io-client": "^2.1.0",
+    "style-loader": "^0.21.0",
+    "uglifyjs-webpack-plugin": "^1.2.5",
+    "url-loader": "^1.0.1",
+    "webpack": "^3.11.0",
+    "webpack-dev-server": "^2.11.2"
   }
 }
