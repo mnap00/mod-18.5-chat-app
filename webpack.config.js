@@ -6,10 +6,10 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const OptimizeJsPlugin = require('optimize-js-plugin');
 
 const plugins = [
-    new ExtractTextPlugin('styles/[name].css'),
+    new ExtractTextPlugin('[name].css'),
     new HtmlWebpackPlugin({
         template: 'src/public/index.html',
-        filename: 'public/index.html',
+        filename: 'index.html',
         inject: 'body'
     })
 ];
@@ -25,6 +25,7 @@ module.exports = (env) => {
             plugins.push(
                 new CopyWebpackPlugin([
                     {
+                        flatten: true,
                         from: path.resolve(__dirname, './src/*.js'),
                         to: path.resolve(__dirname, './dist/')
                     }
@@ -53,9 +54,9 @@ module.exports = (env) => {
             publicPath: '/'
         },
         output: {
-            filename: 'client/[name].bundle.js',
-            path: path.resolve(__dirname, 'dist'),
-            sourceMapFilename: 'client/[file].map'
+            filename: '[name].bundle.js',
+            path: path.resolve(__dirname, 'dist/public'),
+            sourceMapFilename: '[file].map'
         },
         module: {
             rules: [
