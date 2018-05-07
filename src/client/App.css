@@ -39,7 +39,7 @@ body {
     flex: 1;
 }
 
-.MessageWrapper {
+.MessagesWrapper {
     display: flex;
     flex-direction: column;
     width: 75vw;
