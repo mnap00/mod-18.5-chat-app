@@ -16,8 +16,8 @@ class App extends Component {
         this.state = {
             users: [],
             messages: [],
-            text: [],
-            name: []
+            text: '',
+            name: ''
         };
     }
     componentDidMount() {
