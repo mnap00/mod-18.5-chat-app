@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -11,6 +12,9 @@ const plugins = [
         template: 'src/public/index.html',
         filename: 'index.html',
         inject: 'body'
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+        sourceMap: true
     })
 ];
 
@@ -51,6 +55,9 @@ module.exports = (env) => {
         devtool: devMode ? 'inline-source-map' : 'source-map',
         devServer: {
             contentBase: './src/public',
+            proxy: {
+                '/socket.io': 'http://localhost:8080'
+            },
             publicPath: '/'
         },
         output: {
@@ -79,6 +86,7 @@ module.exports = (env) => {
                                     camelCase: true,
                                     importLoaders: 2,
                                     localIdentName: '[local]___[hash:7]',
+                                    modules: true,
                                     sourceMap: true
                                 }
                             }, {
