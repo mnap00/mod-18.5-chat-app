@@ -175,6 +175,5 @@ typings/
 
 ### Other ###
 # Build directories
-public
 dist
 build
