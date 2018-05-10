@@ -39,7 +39,7 @@ module.exports = (env) => {
             ),
             plugins.push(
                 new OptimizeJsPlugin({
-                    sourceMap: false
+                    sourceMap: true
                 })
             )
         );
@@ -55,8 +55,9 @@ module.exports = (env) => {
         devtool: devMode ? 'inline-source-map' : 'source-map',
         devServer: {
             contentBase: './src/public',
+            hot: true,
             proxy: {
-                '/socket.io': 'http://localhost:8080'
+                '/socket.io/*': 'http://localhost:3000'
             },
             publicPath: '/'
         },
