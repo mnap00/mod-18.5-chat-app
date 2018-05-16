@@ -4,7 +4,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const OptimizeJsPlugin = require('optimize-js-plugin');
+//const OptimizeJsPlugin = require('optimize-js-plugin');
 
 const plugins = [
     new ExtractTextPlugin('[name].css'),
@@ -36,11 +36,11 @@ module.exports = (env) => {
                 ], {
                     ignore: []
                 })
-            ),
-            plugins.push(
-                new OptimizeJsPlugin({
-                    sourceMap: true
-                })
+                //            ),
+                //            plugins.push(
+                //                new OptimizeJsPlugin({
+                //                    sourceMap: true
+                //                })
             )
         );
 
