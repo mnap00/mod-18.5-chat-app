@@ -3,7 +3,7 @@ Chat App
 
 An application made with SCRUM method. Build and developed with webpack.
 To run the application build it with `npm run build` and run Node.js server `nodemon dist`.
-Runs on port 3000 in case u use Nodemon: `localhost:3000`.
+Runs on port 3000 in case you use Nodemon: `localhost:3000`.
 
 -----
 
